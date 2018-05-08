@@ -6,7 +6,9 @@ var express    = require("express"),
 
 var app = express();
 
-var PORT = process.env.PORT || 3000; 
+var PORT = process.env.PORT || 3000;
+
+var db = require("./models");
 
 app.use(express.static("public"));
 
@@ -30,6 +32,8 @@ app.use(burger_controller);
 //       });
 // });
 
-app.listen(PORT, function() {
-      console.log("server.js: Server listening on http://localhost:" + PORT);
+db.sequelize.sync({force:true}).then(function() {
+      app.listen(PORT, function() {
+            console.log("Server listening on http://localhost:" + PORT);
+      });
 });

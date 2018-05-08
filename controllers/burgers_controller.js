@@ -9,11 +9,32 @@ var db = require("../models");
 // 4. Create the `router` for the app, and export the `router` at the end of your file.
 router.get("/", function (req, res) {
     db.Burger.findAll({}).then(function(data) {
-        // res.json(results);
+        console.log("-data-");
+        console.log(data);
+        // console.log(data.Burger.dataValues);
+        
+
+        // var hbObject = {
+        //     burgers: {
+        //         burger_name: data.dataValues.burger_name,
+        //         devoured: data.dataValues.devoured
+        //     }
+        // };
+
+        // var hbObject = {
+        //     burger_name: data.dataValues,
+        //     devoured: data.dataValues
+        // }
+
         var hbObject = {
             burgers: data
-        };
+        }
+        console.log("-hbObject-");
+        console.log(hbObject);
+
         res.render("index", hbObject);
+        // res.render("index");
+        
     });
     // ORM
     // burger.all(
@@ -28,9 +49,13 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-    db.Todo.create({}).then(function() {
-        
-    })
+    db.Burger.create({
+        burger_name: req.body.name,
+        devoured: req.body.devoured
+    }).then(function(data) {
+        res.json(data);
+        // res.json({id: data.insertId})
+    });
     // ORM    
     // burger.insert(
     //     ["burger_name", "devoured"],
@@ -42,11 +67,26 @@ router.post("/api/burgers", function(req, res) {
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    // var condition = "id = " + req.params.id;
+    // console.log("condition:", condition);
+    // console.log("req.body:", req.body);
 
-    console.log("condition:", condition);
+    console.log("-req.body-");
+    console.log(req.body);
+    console.log("-req.params.id-");
+    console.log(req.params.id);
+    
+    
 
-    console.log("req.body:", req.body);
+    db.Burger.update({
+        devoured: req.body.devoured
+    },{
+        where:{
+            id: req.params.id
+        }
+    }).then(function(data) {
+        res.json(data);
+    });
 
     // ORM
     // burger.update(

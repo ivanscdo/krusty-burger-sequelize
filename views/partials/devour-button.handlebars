@@ -1,8 +1,9 @@
 <li>
     <p>
-        {{id}}. {{burger_name}}
+        {{!-- {{id}}. {{burger_name}} --}}
+        {{dataValues.id}}. {{dataValues.burger_name}}        
 
-        <button class="devour-burger" data-id="{{id}}" data-devour="{{devour}}">
+        <button class="devour-burger" data-id="{{dataValues.id}}" data-devour="{{devour}}">
             {{#if devour}}Devour!
             {{else}}Order Again!
             {{/if}}
