@@ -1,0 +1,20 @@
+<li>
+    <p>
+        {{id}}. {{burger_name}}
+
+        <button class="devour-burger" data-id="{{id}}" data-devour="{{devour}}">
+            {{#if devour}}Devour!
+            {{else}}Order Again!
+            {{/if}}
+            {{!-- {{#unless devour}} Devour!
+            {{/unless}} --}}
+        </button>
+    </p>
+</li>
+
+
+    {{!-- <li>
+        <p>
+            {{this.id}}. {{this.burger_name}}
+        </p>
+    </li> --}}
