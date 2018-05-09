@@ -1,8 +1,11 @@
-/* body {
-    background-image: url("../img/krusty-burger-full-menu.jpg");
-    background-color: #fec256;
-} */
+.krusty-burger-heading {
+    background-image: url("../img/krusty-burger-logo.png");
+}
 
 div.main {
-    background-color: #fec256
+    background-color: #fec256;
+}
+
+div.sub {
+    background-color: #00af9f;
 }
