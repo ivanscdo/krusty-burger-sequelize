@@ -1,45 +1,62 @@
-<h1>Krusty Burger</h1>
+<div class="container">
 
-<h2>Order up!</h2>
-
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> devour-button devour=true}}
-        {{/unless}}
-        {{!-- test: successfully posting --}}
-    {{!-- <li>
-        <p>
-            {{dataValues.id}}. {{dataValues.burger_name}}
-        </p>
-    </li> --}}
-    {{/each}}
-</ul>
-
-<h2>Devoured!</h2>
-
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> devour-button devour=false}}
-        {{/if}}
-    {{/each}}
-</ul>
-
-{{!-- <ul>
-    {{#each burger}}
-
-</ul> --}}
-
-<h2>Add a burger!</h2>
-
-<form class="adda-burger">
-
-    <div class="form-group">
-        <label for="burger-name">Burger Name:</label>
-        <input type="text" id="burger-name" name="name">
-        <button type="submit">Add Burger</button>
+    <div class="row justify-content-md-center krusty-burger-heading">
+        <h1>Krusty Burger</h1>
     </div>
-    
-    
-</form>
+
+    <div class="row main">
+        <div class="col-6">
+            <div class="row justify-content-md-center order-devour-heading">
+                <h2>Order up!</h2>            
+            </div>
+
+            <div class="row justify-content-md-center">
+                <ul>
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                            {{> devour-button devour=true}}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>   
+        </div>
+
+        <div class="col-6">
+            <div class="row justify-content-md-center order-devour-heading">
+                <h2>Devoured!</h2>            
+            </div>
+
+            <div class="row justify-content-md-center">
+                <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            {{> devour-button devour=false}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="row justify-content-md-center">
+                <h2>Add a burger!</h2>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <form class="adda-burger">
+                    <div class="form-group">
+                        <label for="burger-name">Burger Name:</label>
+                        <input type="text" id="burger-name" name="name">
+                        <button type="button submit" class="btn btn-success">Add Burger</button>
+                        {{!-- <button type="submit">Add Burger</button> --}}
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

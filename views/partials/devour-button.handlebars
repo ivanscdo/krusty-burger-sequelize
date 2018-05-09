@@ -1,21 +1,20 @@
 <li>
     <p>
-        {{!-- {{id}}. {{burger_name}} --}}
         {{dataValues.id}}. {{dataValues.burger_name}}        
 
-        <button class="devour-burger" data-id="{{dataValues.id}}" data-devour="{{devour}}">
-            {{#if devour}}Devour!
-            {{else}}Order Again!
+        {{!-- <button type="button" class="btn btn-warning devour-burger" data-id="{{dataValues.id}}" data-devour="{{devour}}"> --}}
+            {{#if devour}}
+                <button type="button" class="btn btn-info devour-burger" data-id="{{dataValues.id}}" data-devour="{{devour}}">
+                    Devour!
+                </button>
+            {{else}}
+                <button type="button" class="btn btn-warning devour-burger" data-id="{{dataValues.id}}" data-devour="{{devour}}">
+                    Order Again!
+                </button>
+                
             {{/if}}
-            {{!-- {{#unless devour}} Devour!
-            {{/unless}} --}}
-        </button>
     </p>
 </li>
 
 
-    {{!-- <li>
-        <p>
-            {{this.id}}. {{this.burger_name}}
-        </p>
-    </li> --}}
+ 
